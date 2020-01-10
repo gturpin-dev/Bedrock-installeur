@@ -33,6 +33,7 @@ read site_mail
 composer create-project roots/bedrock $project_name
 cd $project_name
 rm .env
+rm web/app/mu-plugins/register-theme-directory.php
 wp dotenv init --with-salts --force
 wp dotenv set DB_NAME $db_name
 wp dotenv set DB_USER $db_user
@@ -45,8 +46,14 @@ wp dotenv set WP_SITEURL \$\{WP_HOME\}/wp
 ################################
 # Init Wordpress
 ################################
-wp core install --url='http://localhost:8000' --title=$project_name --admin_user=$site_id --admin_password=$site_passwd --admin_email=$site_mail
+wp db create
+wp core install --url='http://localhost:8000' --title=$project_name --admin_user=$site_id --admin_password=$site_passwd --admin_email=$site_mail --skip-email
+wp language core install fr_FR
+wp language core activate fr_FR
 wp core update
+wp core update-db
+wp theme install twentytwenty
+wp theme activate twentytwenty
 
 ################################
 # Delete Installation folder
