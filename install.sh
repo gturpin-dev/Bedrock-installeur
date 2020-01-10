@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ################################
-# ask for variable
+# Ask for variable
 ################################
 echo "Quel est le nom de votre projet ?"
 read project_name
@@ -28,7 +28,7 @@ echo "Quel est l'email du compte admin ?"
 read site_mail
 
 ################################
-# Init project
+# Init Project
 ################################
 composer create-project roots/bedrock $project_name
 cd $project_name
@@ -47,3 +47,12 @@ wp dotenv set WP_SITEURL \$\{WP_HOME\}/wp
 ################################
 wp core install --url='http://localhost:8000' --title=$project_name --admin_user=$site_id --admin_password=$site_passwd --admin_email=$site_mail
 wp core update
+
+################################
+# Delete Installation folder
+################################
+cd ..
+mv ./Makefile $project_name
+mv $project_name ..
+cd ..
+rm -rf Bedrock-installeur
