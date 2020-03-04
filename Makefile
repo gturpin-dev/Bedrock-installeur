@@ -1,4 +1,4 @@
-.PHONY: dev deploy dbdeploy import dbimport help update fulldeploy delete_revisions get_wpcli
+.PHONY: dev deploy dbdeploy import dbimport help update fulldeploy delete_revisions get_wpcli fullimport
 
 # path to local project
 path=~/public_html/www/folder-name/
@@ -57,6 +57,8 @@ update: ## Met a jour wordpress
 	wp plugin update --all
 
 fulldeploy: deploy dbdeploy ## Déploie le site complet sur le serveur
+
+fullimport: import dbimport ## Importe le site complet en local
 
 delete_revisions: ## Supprime les révisions
 	$(prefix) post delete \$\($(prefix) post list --post_type='revision' --format=ids\)
