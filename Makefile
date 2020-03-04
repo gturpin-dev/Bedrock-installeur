@@ -55,6 +55,8 @@ update: ## Met a jour wordpress
 	wp core update
 	wp core update-db
 	wp plugin update --all
+	wp language core update
+	wp language plugin update --all
 
 fulldeploy: deploy dbdeploy ## Déploie le site complet sur le serveur
 
