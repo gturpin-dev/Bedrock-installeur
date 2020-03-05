@@ -1,0 +1,6 @@
+path: "web/wp"
+
+@prod:
+  user: admin_user_name
+  ssh: user@ipadress
+  path: "/path/to/website/web/wp"

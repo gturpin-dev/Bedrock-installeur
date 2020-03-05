@@ -60,6 +60,7 @@ wp theme activate twentytwenty
 ################################
 cd ..
 mv ./Makefile $project_name
+mv ./wp-cli.yml $project_name
 mv $project_name ..
 cd ..
 rm -rf Bedrock-installeur
