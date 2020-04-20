@@ -1,4 +1,4 @@
-.PHONY: dev deploy dbdeploy import dbimport help update fulldeploy delete_revisions get_wpcli fullimport
+.PHONY: dev deploy dbdeploy import dbimport help update fulldeploy delete_revisions get_wpcli fullimport optimize
 
 # path to local project
 path=~/public_html/www/folder-name/
@@ -64,6 +64,9 @@ fullimport: import dbimport ## Importe le site complet en local
 
 delete_revisions: ## Supprime les révisions
 	$(prefix) post delete \$\($(prefix) post list --post_type='revision' --format=ids\)
+
+optimize: delete_revisions ## Optimise wordpress
+	$(prefix) db optimize
 
 get_wpcli: ## Télécharge wp-cli.phar
 	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
