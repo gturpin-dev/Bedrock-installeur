@@ -52,8 +52,8 @@ wp language core install fr_FR
 wp language core activate fr_FR
 wp core update
 wp core update-db
-wp theme install twentytwenty
-wp theme activate twentytwenty
+wp theme install twentytwentyone
+wp theme activate twentytwentyone
 
 ################################
 # Delete Installation folder
